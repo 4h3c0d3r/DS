@@ -1,0 +1,29 @@
+
+bool cycledetection(Node* head) {
+
+Node *temp,*p; //pointer variables
+int f,i;
+p=head;
+f=0;
+while(p!=NULL)  //Traverse the List
+{
+    temp=head;
+    while(temp!=p)  //Traverse upto p
+    {
+        if(p->next==temp) //Check for cycle
+        {
+            f=1;
+            break;
+        }
+        temp=temp->next;  //Point to next node
+    }
+    if(f==1)  //Check for flag
+        break;
+    else
+        p=p->next;
+}
+if(f==1)  //If there's a cycle then return true else false
+    return true;
+else 
+    return false;
+}
